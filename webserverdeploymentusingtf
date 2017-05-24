@@ -1,0 +1,11 @@
+resource "aws_instance" "app" {
+  instance_type     = "t2.micro"
+  availability_zone = "ca-central-1a"
+  ami               = "ami-0bd66a6f"
+
+  user_data = <<-EOF
+              #!/bin/bash
+              sudo service apache2 start
+              EOF
+}
+
